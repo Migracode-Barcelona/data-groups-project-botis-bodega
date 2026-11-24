@@ -1,0 +1,588 @@
+/* 🎨 Boti's Bodega — week 1 scene.
+   Pre-written on purpose: this week you are training Boti's brain,
+   not painting the shop. CSS gets its turn in the course soon. */
+
+:root {
+  --cream: #faf3e3;
+  --paper: #fff9c4;
+  --ink: #2f2a25;
+  --terracotta: #d96f4e;
+  --teal: #2a9d8f;
+  --amber: #ffb703;
+  --card: #fffdf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+.shop-header {
+  text-align: center;
+  padding: 18px 12px 6px;
+}
+
+.shop-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: #7a6f61;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scene-card,
+.panel {
+  background: var(--card);
+  border: 2px solid #eadfca;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(47, 42, 37, 0.08);
+}
+
+/* ---------- the shop scene ------------------------------------ */
+
+.scene {
+  position: relative;
+  min-height: 470px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(#fdf6e3, #f7ead0);
+  padding-top: 34px;
+}
+
+.awning {
+  height: 34px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--terracotta) 0 34px,
+    #fff 34px 68px
+  );
+  border-bottom: 3px solid rgba(47, 42, 37, 0.2);
+}
+
+/* Carmen's wall list */
+
+.carmens-note {
+  position: absolute;
+  top: 48px;
+  left: 14px;
+  width: 190px;
+  background: var(--paper);
+  border: 1px solid #e6d878;
+  box-shadow: 2px 3px 8px rgba(47, 42, 37, 0.18);
+  transform: rotate(-2deg);
+  padding: 10px 12px;
+  z-index: 4;
+}
+
+.carmens-note h3 {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-family: "Comic Sans MS", "Chalkboard SE", cursive;
+}
+
+.carmens-note ul {
+  margin: 0;
+  padding-left: 18px;
+  font-family: "Comic Sans MS", "Chalkboard SE", cursive;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  columns: 2;
+  column-gap: 10px;
+  max-height: 158px;
+  overflow: hidden;
+}
+
+/* Boti the robot */
+
+.boti {
+  position: absolute;
+  right: 60px;
+  bottom: 160px;
+  width: 96px;
+  text-align: center;
+  animation: boti-bob 2.4s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes boti-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.boti.smoking {
+  animation: boti-shake 0.35s linear 4;
+}
+
+@keyframes boti-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-7px) rotate(-4deg);
+  }
+  75% {
+    transform: translateX(7px) rotate(4deg);
+  }
+}
+
+.boti-antenna {
+  width: 4px;
+  height: 16px;
+  margin: 0 auto;
+  background: #9a938a;
+  position: relative;
+}
+
+.boti-antenna::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.boti-head {
+  width: 96px;
+  height: 64px;
+  background: #eef0f4;
+  border: 3px solid #3c4657;
+  border-radius: 18px;
+  position: relative;
+}
+
+.boti-eye {
+  position: absolute;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--teal);
+  transition: background 0.4s;
+}
+
+.boti-eye.left {
+  left: 18px;
+}
+
+.boti-eye.right {
+  right: 18px;
+}
+
+.boti-mouth {
+  position: absolute;
+  bottom: 12px;
+  left: 33px;
+  width: 30px;
+  height: 8px;
+  border-radius: 6px;
+  background: #9a938a;
+  transition: background 0.4s;
+}
+
+.boti-body {
+  width: 76px;
+  margin: 4px auto 0;
+  padding: 14px 0;
+  background: #eef0f4;
+  border: 3px solid #3c4657;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+.boti-wheel {
+  width: 34px;
+  height: 14px;
+  margin: 0 auto;
+  background: #3c4657;
+  border-radius: 0 0 14px 14px;
+}
+
+/* customers */
+
+.customer {
+  position: absolute;
+  left: -140px;
+  bottom: 130px;
+  text-align: center;
+  transition: left 0.6s ease;
+  z-index: 3;
+}
+
+.customer.entered {
+  left: 130px;
+}
+
+#customer-emoji {
+  display: block;
+  font-size: 58px;
+}
+
+#customer-name {
+  font-size: 0.75rem;
+  background: #fff;
+  border: 1px solid #eadfca;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+/* speech bubble */
+
+.bubble {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 8px 14px;
+  max-width: 340px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s;
+  z-index: 6;
+}
+
+.bubble.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bubble.boti-voice {
+  border-color: var(--teal);
+}
+
+.bubble.carmen-voice {
+  border-color: var(--terracotta);
+}
+
+/* smoke puffs */
+
+.smoke-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 7;
+}
+
+.puff {
+  position: absolute;
+  bottom: 250px;
+  right: 90px;
+  font-size: 26px;
+  animation: puff-rise 1.1s ease-out forwards;
+}
+
+@keyframes puff-rise {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(0.7);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-70px) scale(1.6);
+  }
+}
+
+/* shelves */
+
+.shelves {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  background: #fffbeee0;
+  border: 2px solid #eadfca;
+  border-radius: 12px;
+  padding: 8px 12px 12px;
+  z-index: 2;
+}
+
+.shelves h3 {
+  margin: 2px 0 6px;
+  font-size: 0.8rem;
+}
+
+.shelves ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 92px;
+  overflow: hidden;
+}
+
+.sticky {
+  background: var(--paper);
+  border: 1px solid #e6d878;
+  font-size: 0.68rem;
+  padding: 3px 7px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px rgba(47, 42, 37, 0.15);
+}
+
+.sticky:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.sticky:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+/* label gun strip */
+
+.labels-strip {
+  position: absolute;
+  left: 230px;
+  top: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 190px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.label-chip {
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  width: fit-content;
+  transform: rotate(-1deg);
+}
+
+/* controls + log */
+
+.scene-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0 8px;
+}
+
+.big-button {
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.big-button:hover {
+  transform: scale(1.04);
+}
+
+.small-button {
+  background: #fff;
+  border: 2px solid #eadfca;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.shift-log {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  background: #2f2a25;
+  color: #f4ecd8;
+  border-radius: 10px;
+  padding: 10px 14px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin: 0;
+  padding-left: 28px;
+}
+
+.shift-log li.good {
+  color: #8fe388;
+}
+
+.shift-log li.bad {
+  color: #ff9d8a;
+}
+
+.shift-log li.alert {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* brain scan panel */
+
+.panel h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.skills-count {
+  font-weight: 700;
+  color: var(--teal);
+  margin: 0 0 10px;
+}
+
+.skill-chips {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skill-chip {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 2px solid #eadfca;
+  font-size: 0.8rem;
+  background: #fff;
+}
+
+.skill-chip.installed {
+  border-color: var(--teal);
+  background: #e8f5f3;
+}
+
+.skill-chip.broken {
+  border-color: #d64541;
+  background: #ffe9e5;
+}
+
+.skill-chip .xp-tag {
+  font-size: 0.7rem;
+  color: #7a6f61;
+  white-space: nowrap;
+}
+
+.xp {
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.rank {
+  font-size: 1rem;
+  margin: 0 0 12px;
+  padding: 8px;
+  text-align: center;
+  background: linear-gradient(90deg, #fff2cc, #ffe0b3);
+  border-radius: 10px;
+}
+
+.bonus-title {
+  margin: 8px 0 6px;
+}
+
+.skill-chips.bonus .skill-chip {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+}
+
+.panel-note {
+  font-size: 0.78rem;
+  color: #7a6f61;
+  border-top: 1px dashed #eadfca;
+  padding-top: 10px;
+}
+
+/* phantom alert overlay */
+
+.phantom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(60, 20, 10, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.phantom-overlay.show {
+  display: flex;
+}
+
+.phantom-card {
+  background: #fff;
+  border-top: 8px solid var(--terracotta);
+  border-radius: 14px;
+  padding: 20px 24px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.phantom-card h2 {
+  margin: 0 0 8px;
+}
+
+.phantom-card p {
+  font-size: 0.9rem;
+}
+
+/* celebration rain */
+
+.rain-emoji {
+  position: absolute;
+  top: -20px;
+  font-size: 22px;
+  animation: rain-fall 2.4s linear forwards;
+  z-index: 8;
+}
+
+@keyframes rain-fall {
+  to {
+    transform: translateY(500px) rotate(200deg);
+    opacity: 0.2;
+  }
+}
