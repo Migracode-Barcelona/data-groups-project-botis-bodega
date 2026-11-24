@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boti's Bodega — ONLINE!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="shop-header">
+      <h1>🤖 Boti's Bodega <span class="online">· ONLINE!</span></h1>
+      <p class="tagline">Week 3 · The Shop Goes Online · La Bodega de Gràcia</p>
+      <div id="megamercado-banner" class="megamercado-banner">
+        🏆 MEGAMERCADO DEFEATED. THE BODEGA WINS! 🎉
+      </div>
+    </header>
+
+    <main>
+      <section class="shop-area">
+        <h2>🧺 The shelves</h2>
+        <input
+          id="search-input"
+          placeholder="search the bodega…"
+          autocomplete="off"
+        />
+        <ul id="product-list" class="product-grid">
+          <!-- Quest 1: your JavaScript will fill these shelves -->
+        </ul>
+      </section>
+
+      <aside class="cart-area">
+        <h2>🛒 Your basket</h2>
+        <ul id="cart-list">
+          <!-- Quest 3: your JavaScript will fill the basket -->
+        </ul>
+        <p id="cart-total" class="cart-total"></p>
+        <button id="checkout-button" class="checkout-button">Checkout</button>
+        <div id="receipt" class="receipt"></div>
+      </aside>
+
+      <section class="restock-area">
+        <h2>📦 Employee portal</h2>
+        <p class="restock-note">
+          Doña Carmen adds new products here. New stock arrives with whatever
+          amount you type.
+        </p>
+        <form id="restock-form">
+          <label for="product-name">Name</label>
+          <input id="product-name" placeholder="tortilla" required />
+
+          <label for="product-price">Price (€)</label>
+          <input
+            id="product-price"
+            type="number"
+            step="0.25"
+            min="0"
+            placeholder="3.25"
+            required
+          />
+
+          <label for="product-stock">Stock</label>
+          <input id="product-stock" type="number" min="0" value="5" />
+
+          <label for="product-emoji">Shelf emoji</label>
+          <input id="product-emoji" placeholder="🥘" maxlength="4" />
+
+          <label for="product-category">Category</label>
+          <input id="product-category" placeholder="food" />
+
+          <button type="submit" class="restock-button">Shelve it!</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="shop-footer">
+      <p>
+        El MegaMercado is watching this website. 👀 Give them a reason to worry.
+      </p>
+    </footer>
+
+    <script src="bodega.js"></script>
+    <script src="shop.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

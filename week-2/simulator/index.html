@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boti's Bodega — Week 2: The New Ledger</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="shop-header">
+      <h1>🤖 Boti's Bodega</h1>
+      <p class="tagline">
+        Week 2 · The New Ledger · ¡El MegaMercado está al acecho! 🏢
+      </p>
+    </header>
+
+    <main>
+      <section class="scene-card">
+        <div class="scene" id="scene">
+          <div class="awning"></div>
+
+          <div class="boti" id="boti">
+            <div class="boti-antenna"></div>
+            <div class="boti-head">
+              <div class="boti-eye left"></div>
+              <div class="boti-eye right"></div>
+              <div class="boti-mouth" id="boti-mouth"></div>
+            </div>
+            <div class="boti-body"><span>BOTI</span></div>
+            <div class="boti-wheel"></div>
+          </div>
+
+          <div class="customer" id="customer">
+            <span id="customer-emoji"></span>
+            <span id="customer-name"></span>
+          </div>
+
+          <div class="bubble" id="bubble"></div>
+          <div class="smoke-layer" id="smoke-layer"></div>
+
+          <div class="shelves">
+            <h3>
+              📒 The ledger shelves
+              <span id="scroll-hint" class="scroll-hint">— scroll ⇢ —</span>
+            </h3>
+            <ul id="product-list"></ul>
+          </div>
+        </div>
+
+        <div class="carmens-laptop">
+          <h3>💻 Carmen's laptop</h3>
+          <input
+            id="search-input"
+            placeholder="try: category=drinks"
+            autocomplete="off"
+          />
+          <button id="search-apply" class="small-button">Search</button>
+          <button id="search-clear" class="small-button">Show all</button>
+          <p class="search-note" id="search-note">
+            The bodega's new search bar runs on YOUR parseShopQuery.
+          </p>
+        </div>
+
+        <div class="scene-controls">
+          <button id="run-shift" class="big-button">▶ Run a shift</button>
+          <button id="happy-hour" class="small-button">
+            🎉 Happy hour on bocadillos (50%)
+          </button>
+          <button id="speed-toggle" class="small-button">
+            Speed: normal 🚶
+          </button>
+        </div>
+
+        <ol class="shift-log" id="shift-log"></ol>
+      </section>
+
+      <aside class="panel">
+        <h2>🧠 Boti's brain scan</h2>
+        <p class="skills-count" id="skills-count">scanning…</p>
+        <ul class="skill-chips" id="skill-chips"></ul>
+        <p class="xp" id="xp"></p>
+        <p class="rank" id="rank"></p>
+
+        <h3 class="bonus-title">🌈 Bonus skills</h3>
+        <ul class="skill-chips bonus" id="bonus-chips"></ul>
+
+        <p class="panel-note">
+          Red test = skill not installed.<br />
+          Install skills in <code>week-2/skills.js</code>, then come back and
+          press the buttons!
+        </p>
+      </aside>
+    </main>
+
+    <div class="overlay" id="phantom-overlay">
+      <div class="overlay-card alert">
+        <h2>🚨 SOMETHING CHANGED THAT SHOULDN'T</h2>
+        <p id="phantom-message"></p>
+        <button id="phantom-close" class="big-button">
+          Okay, I'll fix it!
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay" id="report-overlay">
+      <div class="overlay-card report">
+        <h2>📊 THE MEGAMERCADO AUDIT</h2>
+        <p id="report-content"></p>
+        <button id="report-close" class="big-button">Show them, Boti!</button>
+      </div>
+    </div>
+
+    <script src="../bodega.js"></script>
+    <script src="../skills.js"></script>
+    <script src="boti.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "data-groups-project-botis-bodega",
+  "version": "1.0.0",
+  "description": "Boti's Bodega — a 3-week coding quest. Program Boti the shopkeeper robot and save La Bodega de Gràcia from El MegaMercado.",
+  "scripts": {
+    "test": "jest",
+    "week1": "jest week-1",
+    "week2": "jest week-2",
+    "week3": "jest week-3",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "teaching",
+    "javascript",
+    "arrays",
+    "objects",
+    "dom",
+    "testing"
+  ],
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2"
+  }
+}
